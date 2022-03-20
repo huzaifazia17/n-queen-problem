@@ -5,18 +5,22 @@ import time
 # Else, one by one each column is tried to see if a queen can be properly placed in the next row
 # If an available column if found the function is recursively called  and then the queen is removed
 
+# Create file to store solutions
+f = open("recursiveSolutions.txt", "a")
+# Clear file from last run solutions
+f.truncate(0)
 
-def recursiveNQueenSolution(chessboard):
+
+def recursiveNQueenSolution(chessboard, f):
     size = chessboard.getSize()
     numOfSoln = 0
-    # To check runtime of one solution
-    # if(numOfSoln == 1):
-    # return
 
     # if board is full, display solution
     if size == chessboard.queensCount():
-        chessboard.displayBoard()
-        print()
+        # To check runtime of one solution
+        # if(numOfSoln == 1):
+        # return None
+        chessboard.displayBoard(f)
         return 1
 
     # Recursive Algorthim to solve N-queen problem
@@ -24,7 +28,7 @@ def recursiveNQueenSolution(chessboard):
         # If next column is free then:
         if chessboard.checkNextRowColumn(column):
             chessboard.changeRow(column)  # Move queen to next row
-            numOfSoln += recursiveNQueenSolution(chessboard)
+            numOfSoln += recursiveNQueenSolution(chessboard, f)
             chessboard.removeQueenFromCurrentRow()  # Remove queen from occupied row
 
     return numOfSoln
@@ -33,8 +37,10 @@ def recursiveNQueenSolution(chessboard):
 n = int(input('Please enter number of queens and size of board (n): '))
 start = time.time()
 chessboard = ChessBoard(n)
-numOfSoln = recursiveNQueenSolution(chessboard)
+numOfSoln = recursiveNQueenSolution(chessboard, f)
 end = time.time()
 totalTime = end - start
-print("Runtime for 1 solution iteratively is: " + str(totalTime))
+print("Soultion have been generated in recursiveSolutions.txt")
+print("Runtime for 1 solution recursively is: " + str(totalTime))
 print('The Number of solutions:', numOfSoln)
+f.close()

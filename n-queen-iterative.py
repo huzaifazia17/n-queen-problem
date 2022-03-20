@@ -1,8 +1,11 @@
 from ChessBoard import ChessBoard
 import time
 
+f = open("iterativeSolutions.txt", "a")
+f.truncate(0)
 
-def iterativeNQueenSolution(size):
+
+def iterativeNQueenSolution(size, f):
     chessboard = ChessBoard(size)
     numOfSoln = 0
     row = 0
@@ -25,8 +28,7 @@ def iterativeNQueenSolution(size):
         if (column == size or row == size):
             # Solution achieved if the board is full
             if row == size:
-                chessboard.displayBoard()
-                print()
+                chessboard.displayBoard(f)
                 numOfSoln += 1
                 # To check runtime of one solution
                 # if(numOfSoln == 1):
@@ -41,13 +43,14 @@ def iterativeNQueenSolution(size):
             row -= 1
             # Start checking at 1 + value of the column in the previous row)
             column = 1 + previousColumn
-
+    print("Soultion have been generated in iterativeSolutions.txt")
     print('The Number of solutions:', numOfSoln)
 
 
 n = int(input('Please enter number of queens and size of board (n): '))
 start = time.time()
-iterativeNQueenSolution(n)
+iterativeNQueenSolution(n, f)
 end = time.time()
 totalTime = end - start
-print("Runtime for 1 solution iteratively is: " + str(totalTime))
+#print("Runtime for 1 solution iteratively is: " + str(totalTime))
+f.close()

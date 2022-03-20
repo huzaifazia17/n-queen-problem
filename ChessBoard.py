@@ -43,11 +43,12 @@ class ChessBoard:
         return True
 
     # Display Chessboard
-    def displayBoard(self):
+    def displayBoard(self, f):
         for row in range(self.size):
             for column in range(self.size):
                 if column == self.columns[row]:
-                    print('Q', end=' ')
+                    print('Q', end=' ', file=f)
                 else:
-                    print('.', end=' ')
-            print()
+                    print('.', end=' ', file=f)
+            print(' ', file=f)
+        print(' ', file=f)
