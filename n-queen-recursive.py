@@ -41,6 +41,6 @@ numOfSoln = recursiveNQueenSolution(chessboard, f)
 end = time.time()
 totalTime = end - start
 print("Soultion have been generated in recursiveSolutions.txt")
-print("Runtime for 1 solution recursively is: " + str(totalTime))
+print("Runtime for solution recursively is: " + str(totalTime))
 print('The Number of solutions:', numOfSoln)
 f.close()

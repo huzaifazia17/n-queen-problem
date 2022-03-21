@@ -1,6 +1,14 @@
 from ChessBoard import ChessBoard
 import time
 
+""" 
+Create a chessboard object
+During each Iteration, colunmns are checked to see in which first available row a queen may be placed. 
+This is done using another loop inside the while loop. If such a column exists then place the queen there and stop the inner loop
+If a column was not found or the board is full, then we need to backtrack. Incase the board is ful then it should be displayed first.
+The backtracking works by removing the queen from the last filled row and have the next iteration try column values above the column values of the queen just removed.
+"""
+
 f = open("iterativeSolutions.txt", "a")
 f.truncate(0)
 
@@ -52,5 +60,5 @@ start = time.time()
 iterativeNQueenSolution(n, f)
 end = time.time()
 totalTime = end - start
-#print("Runtime for 1 solution iteratively is: " + str(totalTime))
+print("Runtime for solution iteratively is: " + str(totalTime))
 f.close()
