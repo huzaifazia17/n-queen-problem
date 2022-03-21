@@ -8,8 +8,9 @@ This is done using another loop inside the while loop. If such a column exists t
 If a column was not found or the board is full, then we need to backtrack. Incase the board is ful then it should be displayed first.
 The backtracking works by removing the queen from the last filled row and have the next iteration try column values above the column values of the queen just removed.
 """
-
+# Create file to store solutions
 f = open("iterativeSolutions.txt", "a")
+# Clear file from last run solutions
 f.truncate(0)
 
 
