@@ -17,9 +17,6 @@ def recursiveNQueenSolution(chessboard, f):
 
     # if board is full, display solution
     if size == chessboard.queensCount():
-        # To check runtime of one solution
-        # if(numOfSoln == 1):
-        # return None
         chessboard.displayBoard(f)
         return 1
 
