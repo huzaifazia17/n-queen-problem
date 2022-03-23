@@ -6,7 +6,7 @@ import time
 # If an available column if found the function is recursively called  and then the queen is removed
 
 # Create file to store solutions
-f = open("recursiveSolutions.txt", "a")
+f = open("8QueenRecursiveSolutions.txt", "a")
 # Clear file from last run solutions
 f.truncate(0)
 

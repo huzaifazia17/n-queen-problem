@@ -9,7 +9,7 @@ If a column was not found or the board is full, then we need to backtrack. Incas
 The backtracking works by removing the queen from the last filled row and have the next iteration try column values above the column values of the queen just removed.
 """
 # Create file to store solutions
-f = open("iterativeSolutions.txt", "a")
+f = open("8QueenIterativeSolutions.txt", "a")
 # Clear file from last run solutions
 f.truncate(0)
 
